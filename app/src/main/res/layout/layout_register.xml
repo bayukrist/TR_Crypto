@@ -61,8 +61,12 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            style="@style/loginButton"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
             android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:background="@color/primaryTextColor"
+            android:layout_marginTop="16dp"
             android:text="Register" />
 
         <TextView
