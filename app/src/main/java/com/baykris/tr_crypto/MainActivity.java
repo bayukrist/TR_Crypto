@@ -33,6 +33,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        try {
+            this.getSupportActionBar().hide();
+        }catch (NullPointerException e){}
+
         recyclerView = findViewById(R.id.coinList);
         coins = new ArrayList<>();
 

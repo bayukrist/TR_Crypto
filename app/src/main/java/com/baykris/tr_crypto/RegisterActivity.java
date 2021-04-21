@@ -32,6 +32,10 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        try {
+            this.getSupportActionBar().hide();
+        }catch (NullPointerException e){}
+
         edittxtRegisterEmail = findViewById(R.id.edittxtRegisterEmail);
         edittxtRegisterPassword =  findViewById(R.id.edittxtRegisterPassword);
         edittxtConfirmPassword = findViewById(R.id.edittxtComfirmPassword);
