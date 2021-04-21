@@ -20,7 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 
 public class RegisterActivity extends AppCompatActivity {
-    private EditText edittxtRegisterEmail, edittxtRegisterPassword;
+    private EditText edittxtRegisterEmail, edittxtRegisterPassword, edittxtConfirmPassword;
     private Button btnRegister;
     private TextView textViewLogin;
 
@@ -34,6 +34,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         edittxtRegisterEmail = findViewById(R.id.edittxtRegisterEmail);
         edittxtRegisterPassword =  findViewById(R.id.edittxtRegisterPassword);
+        edittxtConfirmPassword = findViewById(R.id.edittxtComfirmPassword);
         textViewLogin = findViewById(R.id.textViewLogin);
         btnRegister = findViewById(R.id.btnRegister);
 
@@ -58,8 +59,9 @@ public class RegisterActivity extends AppCompatActivity {
     private void createUser(){
         String email = edittxtRegisterEmail.getText().toString();
         String password = edittxtRegisterPassword.getText().toString();
+        String password2 = edittxtConfirmPassword.getText().toString();
 
-        if(!email.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+        if(!email.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches() && password.length() >= 8 && password.equals(password2)){
             if(!password.isEmpty()){
                 auth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
@@ -80,7 +82,12 @@ public class RegisterActivity extends AppCompatActivity {
             }
         }else if(email.isEmpty()){
             edittxtRegisterEmail.setError("Empty fields are not allowed!");
-        }else {
+        }else if(!password.equals(password2)){
+            Toast.makeText(RegisterActivity.this, "Password confirmation doesn't match password", Toast.LENGTH_SHORT).show();
+        }else if(password.length() < 8){
+            edittxtRegisterPassword.setError("Password must be at least 8 characters!");
+        }
+        else {
             edittxtRegisterEmail.setError("Please Enter Correct Email");
         }
 
