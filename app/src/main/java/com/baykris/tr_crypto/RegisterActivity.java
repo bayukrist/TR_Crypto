@@ -70,7 +70,7 @@ public class RegisterActivity extends AppCompatActivity {
                 auth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        Toast.makeText(RegisterActivity.this, "Register successfully!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegisterActivity.this, R.string.message5, Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(RegisterActivity.this , LoginActivity.class);
                         startActivity(intent);
                         finish();
@@ -78,21 +78,21 @@ public class RegisterActivity extends AppCompatActivity {
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(RegisterActivity.this, "Registration Error", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegisterActivity.this, R.string.message6, Toast.LENGTH_SHORT).show();
                     }
                 });
             }else {
-                edittxtRegisterPassword.setError("Empty fields are not allowed!");
+                edittxtRegisterPassword.setError(getText(R.string.message3));
             }
         }else if(email.isEmpty()){
-            edittxtRegisterEmail.setError("Empty fields are not allowed!");
+            edittxtRegisterEmail.setError(getText(R.string.message3));
         }else if(!password.equals(password2)){
-            Toast.makeText(RegisterActivity.this, "Password confirmation doesn't match password", Toast.LENGTH_SHORT).show();
+            Toast.makeText(RegisterActivity.this, R.string.message7, Toast.LENGTH_SHORT).show();
         }else if(password.length() < 8){
-            edittxtRegisterPassword.setError("Password must be at least 8 characters!");
+            edittxtRegisterPassword.setError(getText(R.string.message8));
         }
         else {
-            edittxtRegisterEmail.setError("Please Enter Correct Email");
+            edittxtRegisterEmail.setError(getText(R.string.message4));
         }
 
     }

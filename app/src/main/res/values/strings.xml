@@ -1,9 +1,18 @@
 <resources>
     <string name="app_name">ICX-Indonesia Crypto Xchange</string>
     <string name="register">REGISTER</string>
+    <string name="login">LOG IN</string>
     <string name="login_email_hint">Email</string>
     <string name="login_password_hint">Password</string>
     <string name="confirm_password_hint">Confirm Password</string>
-    <string name="signup_login_hint">Already have an account? Sign In</string>
-    <string name="login_signup_hint">Don\'t have an account? Sign Up</string>
+    <string name="signup_login_hint">Already have an account? Log In</string>
+    <string name="login_signup_hint">"Don't have an account? Register"</string>
+    <string name="message1">Login successfully!</string>
+    <string name="message2">Login failed!</string>
+    <string name="message3">Empty fields are not allowed!</string>
+    <string name="message4">Please Enter Correct Email!</string>
+    <string name="message5">Register successfully!</string>
+    <string name="message6">Register failed!</string>
+    <string name="message7">"Password confirmation doesn't match password!"</string>
+    <string name="message8">Password must be at least 8 characters!</string>
 </resources>

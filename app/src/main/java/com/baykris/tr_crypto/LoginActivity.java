@@ -65,7 +65,7 @@ public class LoginActivity extends AppCompatActivity {
                 auth.signInWithEmailAndPassword(email,password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
                     public void onSuccess(AuthResult authResult) {
-                        Toast.makeText(LoginActivity.this, "Login successfully!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, R.string.message1, Toast.LENGTH_SHORT).show();
                         Intent intent2 = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(intent2);
                         finish();
@@ -73,16 +73,16 @@ public class LoginActivity extends AppCompatActivity {
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(LoginActivity.this, "Login failed!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, R.string.message2, Toast.LENGTH_SHORT).show();
                     }
                 });
             }else {
-                editTextPassword.setError("Empty fields are not allowed!");
+                editTextPassword.setError(getText(R.string.message3));
             }
         }else if(email.isEmpty()){
-            editTextEmail.setError("Empty fields are not allowed!");
+            editTextEmail.setError(getText(R.string.message3));
         }else {
-            editTextEmail.setError("Please Enter Correct Email");
+            editTextEmail.setError(getText(R.string.message4));
         }
 
     }

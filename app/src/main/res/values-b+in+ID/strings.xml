@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">ICX-Indonesia Crypto Xchange</string>
+    <string name="register">DAFTAR</string>
+    <string name="login">MASUK</string>
+    <string name="login_email_hint">Surel</string>
+    <string name="login_password_hint">Kata Sandi</string>
+    <string name="confirm_password_hint">Konfirmasi Kata Sandi</string>
+    <string name="signup_login_hint">Sudah mendaftar? Masuk</string>
+    <string name="login_signup_hint">Belum mendaftar? Daftar</string>
+    <string name="message1">Masuk berhasil!</string>
+    <string name="message2">Masuk gagal!</string>
+    <string name="message3">Harap isi semua data!</string>
+    <string name="message4">Harap masukkan email yang benar!</string>
+    <string name="message5">Pendaftaran berhasil!</string>
+    <string name="message6">Pendaftaran gagal!</string>
+    <string name="message7">"Kata sandi yang ditulis tidak sama"</string>
+    <string name="message8">Kata sandi harus memiliki setidaknya 8 karakter!</string>
+</resources>
