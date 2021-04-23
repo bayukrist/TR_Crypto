@@ -2,6 +2,8 @@ package com.baykris.tr_crypto;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -17,14 +19,20 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class RegisterActivity extends AppCompatActivity {
-    private EditText edittxtRegisterEmail, edittxtRegisterPassword, edittxtConfirmPassword;
+    private EditText edittxtRegisterFullName, edittxtRegisterUsername, edittxtRegisterEmail, edittxtRegisterPassword, edittxtConfirmPassword;
     private Button btnRegister;
     private TextView textViewLogin;
 
-    private FirebaseAuth auth;
+    DatabaseReference  mFirebaseDatabase;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,13 +44,40 @@ public class RegisterActivity extends AppCompatActivity {
             this.getSupportActionBar().hide();
         }catch (NullPointerException e){}
 
+        edittxtRegisterFullName = findViewById(R.id.edittxtRegisterFullName);
+        edittxtRegisterUsername = findViewById(R.id.edittxtRegisterUsername);
         edittxtRegisterEmail = findViewById(R.id.edittxtRegisterEmail);
         edittxtRegisterPassword =  findViewById(R.id.edittxtRegisterPassword);
         edittxtConfirmPassword = findViewById(R.id.edittxtComfirmPassword);
         textViewLogin = findViewById(R.id.textViewLogin);
         btnRegister = findViewById(R.id.btnRegister);
 
-        auth = FirebaseAuth.getInstance();
+        FirebaseDatabase mFirebaseInstance = FirebaseDatabase.getInstance();
+
+        // get reference to 'users' node
+        mFirebaseDatabase = mFirebaseInstance.getReference("users");
+
+        // store app title to 'app_title' node
+        mFirebaseInstance.getReference("app_title").setValue("User Database");
+
+        // app_title change listener
+        mFirebaseInstance.getReference("app_title").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Log.e("TAG", "App title updated");
+
+                String appTitle = dataSnapshot.getValue(String.class);
+
+                // update toolbar title
+                getSupportActionBar().setTitle(appTitle);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.e("TAG", "Failed to read app title value.", error.toException());
+            }
+        });
 
         textViewLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,26 +96,24 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void createUser(){
+        String fullname = edittxtRegisterFullName.getText().toString();
+        String username = edittxtRegisterUsername.getText().toString();
         String email = edittxtRegisterEmail.getText().toString();
         String password = edittxtRegisterPassword.getText().toString();
         String password2 = edittxtConfirmPassword.getText().toString();
 
         if(!email.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches() && password.length() >= 8 && password.equals(password2)){
             if(!password.isEmpty()){
-                auth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        Toast.makeText(RegisterActivity.this, R.string.message5, Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(RegisterActivity.this , LoginActivity.class);
-                        startActivity(intent);
-                        finish();
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(RegisterActivity.this, R.string.message6, Toast.LENGTH_SHORT).show();
-                    }
-                });
+
+                if (TextUtils.isEmpty(username)) {
+                    username = mFirebaseDatabase.push().getKey();
+                }
+                UserData userData = new UserData(fullname, username,email,password);
+                mFirebaseDatabase.child(username).setValue(userData);
+                Toast.makeText(RegisterActivity.this, R.string.message5, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(RegisterActivity.this , LoginActivity.class);
+                startActivity(intent);
+                finish();
             }else {
                 edittxtRegisterPassword.setError(getText(R.string.message3));
             }

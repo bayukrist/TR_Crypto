@@ -50,8 +50,6 @@
                     android:layout_marginTop="40dp"/>
 
                 <androidx.cardview.widget.CardView
-                    xmlns:android="http://schemas.android.com/apk/res/android"
-                    xmlns:app="http://schemas.android.com/apk/res-auto"
                     style="@style/loginCard"
                     app:cardCornerRadius="@dimen/loginCardRadius"
                     android:elevation="5dp"
@@ -71,6 +69,27 @@
                             android:layout_marginTop="@dimen/loginViewsMargin"/>
 
 
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/parent"
+                            android:layout_marginTop="@dimen/signup_text_margin_top">
+                            <EditText
+                                android:id="@+id/edittxtRegisterFullName"
+                                style="@style/modifiedEditText"
+                                android:inputType="text"
+                                android:maxLines="1"
+                                android:hint="Full Name"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/parent"
+                            android:layout_marginTop="@dimen/signup_text_margin_top">
+                            <EditText
+                                android:id="@+id/edittxtRegisterUsername"
+                                style="@style/modifiedEditText"
+                                android:inputType="text"
+                                android:maxLines="1"
+                                android:hint="Username"/>
+                        </com.google.android.material.textfield.TextInputLayout>
 
                         <com.google.android.material.textfield.TextInputLayout
                             style="@style/parent"
@@ -106,14 +125,14 @@
                         </com.google.android.material.textfield.TextInputLayout>
 
                         <Button
-                            android:background="@drawable/button_rounded"
                             android:id="@+id/btnRegister"
-                            android:layout_height="wrap_content"
                             android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:textColor="@color/white"
                             android:layout_marginTop="16dp"
-                            android:text="Register" />
+                            android:background="@drawable/button_rounded"
+                            android:text="@string/register"
+                            android:textColor="@color/white" />
 
                         <TextView
                             android:id="@+id/textViewLogin"
