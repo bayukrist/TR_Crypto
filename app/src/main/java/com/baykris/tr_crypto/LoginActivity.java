@@ -17,14 +17,21 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class LoginActivity extends AppCompatActivity {
 
-    private EditText editTextEmail, editTextPassword;
+    private EditText editTextUsername, editTextPassword;
     private TextView txtViewRegister;
     private Button btnLogin;
     private FirebaseAuth auth;
+    DatabaseReference mFirebaseDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,12 +42,15 @@ public class LoginActivity extends AppCompatActivity {
             this.getSupportActionBar().hide();
         }catch (NullPointerException e){}
 
-        editTextEmail = findViewById(R.id.editTextEmail);
+        editTextUsername = findViewById(R.id.editTextUsername);
         editTextPassword = findViewById(R.id.editTextPassword);
         btnLogin = findViewById(R.id.btnLogin);
         txtViewRegister = findViewById(R.id.txtViewRegister);
 
         auth = FirebaseAuth.getInstance();
+        FirebaseDatabase mFirebaseInstance = FirebaseDatabase.getInstance();
+        mFirebaseDatabase = mFirebaseInstance.getReference("users");
+
         txtViewRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,32 +67,53 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void loginUser(){
-        String email = editTextEmail.getText().toString();
+        String username = editTextUsername.getText().toString();
         String password = editTextPassword.getText().toString();
 
-        if(!email.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+        if(!username.isEmpty()){
             if(!password.isEmpty()){
-                auth.signInWithEmailAndPassword(email,password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                Query checkUser = mFirebaseDatabase.orderByChild("username").equalTo(username);
+                checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
-                    public void onSuccess(AuthResult authResult) {
-                        Toast.makeText(LoginActivity.this, R.string.message1, Toast.LENGTH_SHORT).show();
-                        Intent intent2 = new Intent(LoginActivity.this, MainActivity.class);
-                        startActivity(intent2);
-                        finish();
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if(snapshot.exists()){
+                            String passwordFromDB = snapshot.child(username).child("password").getValue(String.class);
+
+                            if(passwordFromDB.equals(password)){
+                                String fullnameFromDB = snapshot.child(username).child("fullname").getValue(String.class);
+                                String usernameFromDB = snapshot.child(username).child ("username").getValue(String.class);
+                                String emailFromDB = snapshot.child(username).child("email").getValue(String.class);
+
+                                Intent intent2 = new Intent(getApplicationContext(), MainActivity.class);
+                                intent2.putExtra("fullname",fullnameFromDB);
+                                intent2.putExtra("username",usernameFromDB);
+                                intent2.putExtra("email",emailFromDB);
+                                intent2.putExtra("password",passwordFromDB);
+
+                                startActivity(intent2);
+                            }
+                            else {
+                                editTextPassword.setError("Wrong password");
+                            }
+                        }
+                        else {
+                            editTextUsername.setError("No such user exist");
+                        }
                     }
-                }).addOnFailureListener(new OnFailureListener() {
+
                     @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(LoginActivity.this, R.string.message2, Toast.LENGTH_SHORT).show();
+                    public void onCancelled(@NonNull DatabaseError error) {
+
                     }
                 });
+
             }else {
                 editTextPassword.setError(getText(R.string.message3));
             }
-        }else if(email.isEmpty()){
-            editTextEmail.setError(getText(R.string.message3));
+        }else if(username.isEmpty()){
+            editTextUsername.setError(getText(R.string.message3));
         }else {
-            editTextEmail.setError(getText(R.string.message4));
+            editTextUsername.setError(getText(R.string.message4));
         }
 
     }
