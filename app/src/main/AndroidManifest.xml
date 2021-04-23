@@ -9,9 +9,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.TR_Crypto">
+        android:theme="@style/Base.AppTheme">
+        <activity android:name=".sell_activity"/>
+        <activity android:name=".ui.home.HomeActivity"/>
+        <activity android:name=".buy_activity"/>
         <activity android:name=".LoginActivity"/>
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".ui.projectProfile.ProjectProfileActivity" />
         <activity android:name=".RegisterActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

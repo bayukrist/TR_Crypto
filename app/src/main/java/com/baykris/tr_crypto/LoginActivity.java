@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.baykris.tr_crypto.ui.home.HomeActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -84,7 +85,7 @@ public class LoginActivity extends AppCompatActivity {
                                 String usernameFromDB = snapshot.child(username).child ("username").getValue(String.class);
                                 String emailFromDB = snapshot.child(username).child("email").getValue(String.class);
 
-                                Intent intent2 = new Intent(getApplicationContext(), MainActivity.class);
+                                Intent intent2 = new Intent(getApplicationContext(), HomeActivity.class);
                                 intent2.putExtra("fullname",fullnameFromDB);
                                 intent2.putExtra("username",usernameFromDB);
                                 intent2.putExtra("email",emailFromDB);

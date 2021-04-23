@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".buy_activity">
+
+    <ImageView
+        android:id="@+id/imageSellCoin"
+        android:layout_width="74dp"
+        android:layout_height="74dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="23dp"
+        app:layout_constraintEnd_toStartOf="@+id/textSellCoinName"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="23dp" />
+
+    <TextView
+        android:id="@+id/textSellCoinName"
+        android:layout_width="187dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="102dp"
+        android:text="Bit Coin"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textBalanceBuy"
+        android:layout_width="115dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="59dp"
+        android:text="99999999"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textSellCoinName" />
+
+    <TextView
+        android:id="@+id/textTotalCoin"
+        android:layout_width="193dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="85dp"
+        android:text="99999999"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputBuy" />
+
+    <TextView
+        android:id="@+id/textJumlahCoin"
+        android:layout_width="112dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="34dp"
+        android:text="$ Amount     : "
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/inputBuy"
+        app:layout_constraintTop_toBottomOf="@+id/textJumlahIdr2" />
+
+    <TextView
+        android:id="@+id/textJumlahIdr2"
+        android:layout_width="115dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="15dp"
+        android:text="Balance : $"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/textBalanceBuy"
+        app:layout_constraintTop_toBottomOf="@+id/textSellCoinName" />
+
+    <TextView
+        android:id="@+id/textJumlahIdr3"
+        android:layout_width="115dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="41dp"
+        android:text="Total coin     :"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/textTotalCoin"
+        app:layout_constraintTop_toBottomOf="@+id/textJumlahCoin" />
+
+    <EditText
+        android:id="@+id/inputBuy"
+        android:layout_width="194dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="84dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textBalanceBuy" />
+
+    <Button
+        android:id="@+id/buttonBuy"
+        android:layout_width="368dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="24dp"
+        android:text="Buy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textTotalCoin" />
+
+    <Button
+        android:id="@+id/buttonHitungCoin"
+        android:layout_width="69dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="7dp"
+        android:text="Calc"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textBalanceBuy" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
