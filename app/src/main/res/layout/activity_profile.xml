@@ -16,10 +16,11 @@
         android:padding="@dimen/loginViewsMargin">
 
 
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="8dp"
             android:layout_marginBottom="10dp"
             android:orientation="horizontal">
 
@@ -27,7 +28,7 @@
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="155dp"
-                android:layout_height="150dp"
+                android:layout_height="100dp"
                 android:layout_margin="@dimen/cardview_margin"
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
@@ -42,17 +43,16 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="@dimen/cardview_image_width"
-                        android:layout_height="@dimen/cardview_image_height"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:layout_gravity="center"
                         android:layout_marginTop="16dp"
-                        android:layout_marginBottom="20dp"
                         android:src="@drawable/ic_baseline_account_balance_wallet_24"/>
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Deposit"
+                        android:text="Aset"
                         android:textAlignment="center"
                         android:textSize="20dp" />
 
@@ -64,7 +64,7 @@
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="155dp"
-                android:layout_height="150dp"
+                android:layout_height="100dp"
                 android:layout_margin="@dimen/cardview_margin"
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
@@ -80,11 +80,10 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="@dimen/cardview_image_width"
-                        android:layout_height="@dimen/cardview_image_height"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:layout_gravity="center"
                         android:layout_marginTop="16dp"
-                        android:layout_marginBottom="20dp"
                         android:src="@drawable/ic_baseline_shopping_cart_24"/>
 
                     <TextView
@@ -100,14 +99,31 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/txtwallet"
-            android:textSize="25dp"
-            android:textStyle="bold"
-            android:layout_marginBottom="16dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/headerTextPrimary"
             android:layout_marginTop="8dp"
-            android:text="Rp. " />
+            android:text="Dompet Anda" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/parent"
+            android:layout_marginTop="@dimen/signup_text_margin_top">
+
+            <EditText
+                android:id="@+id/edittxtprofilWallet"
+                style="@style/modifiedEditText"
+                android:hint="Rp."
+                android:inputType="number"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btnDeposit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/button_rounded"
+            android:text="Tambahkan "
+            android:textColor="@color/white" />
 
         <TextView
             style="@style/headerTextPrimary"

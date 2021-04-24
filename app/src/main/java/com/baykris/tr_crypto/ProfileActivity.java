@@ -15,9 +15,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class ProfileActivity extends AppCompatActivity {
-    private EditText edittxtprofilFullName, edittxtprofilEmail ,edittxtxprofilPhone;
-    private TextView txtwallet;
-    private Button btnUpdate, btnLogout;
+    private EditText edittxtprofilFullName, edittxtprofilEmail ,edittxtxprofilPhone, edittxtxprofilWallet;
+    private String username;
+    private Button btnUpdate, btnLogout, btnDeposit;
     private FirebaseAuth auth;
     DatabaseReference mFirebaseDatabase;
 
@@ -37,13 +37,14 @@ public class ProfileActivity extends AppCompatActivity {
         edittxtprofilFullName = findViewById(R.id.edittxtprofilFullName);
         edittxtprofilEmail = findViewById(R.id.edittxtprofilEmail);
         edittxtxprofilPhone = findViewById(R.id.edittxtprofilPhone);
-        txtwallet = findViewById(R.id.txtwallet);
+        edittxtxprofilWallet = findViewById(R.id.edittxtprofilWallet);
         btnUpdate = findViewById(R.id.btnUpdate);
         btnLogout = findViewById(R.id.btnLogout);
+        btnDeposit = findViewById(R.id.btnDeposit);
 
         Intent intent = getIntent();
         String fullname = intent.getStringExtra("fullname");
-        String username = intent.getStringExtra("username");
+        username = intent.getStringExtra("username");
         String phone = intent.getStringExtra("phone");
         String email = intent.getStringExtra("email");
         String wallet = intent.getStringExtra("wallet");
@@ -51,7 +52,7 @@ public class ProfileActivity extends AppCompatActivity {
         edittxtprofilFullName.setText(fullname);
         edittxtprofilEmail.setText(email);
         edittxtxprofilPhone.setText(phone);
-        txtwallet.setText("Rp. "+wallet);
+        edittxtxprofilWallet.setText(wallet);
 
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,6 +73,18 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
+        btnDeposit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!edittxtxprofilWallet.getText().toString().isEmpty()){
+                    Double walletdouble = Double.parseDouble(edittxtxprofilWallet.getText().toString());
+                    mFirebaseDatabase.child(username).child("wallet").setValue(walletdouble);
+                }else{
+                    edittxtxprofilWallet.setError(getText(R.string.message3));
+                }
+            }
+        });
+
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -82,4 +95,6 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
     }
+
+
 }
