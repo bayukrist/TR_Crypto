@@ -35,6 +35,8 @@
             app:layout_constraintBottom_toBottomOf="parent" />
 
         <TextView
+            style="@style/headerTextPrimary"
+            android:layout_marginTop="@dimen/loginViewsMargin"
             android:id="@+id/noFavouritesView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -43,7 +45,6 @@
             android:layout_margin="@dimen/large_start_margin"
             android:drawablePadding="@dimen/default_bottom_margin"
             android:gravity="center"
-            style="@style/TextAppearance.Custom.H1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

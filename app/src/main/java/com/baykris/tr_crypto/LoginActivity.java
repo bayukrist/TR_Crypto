@@ -80,12 +80,14 @@ public class LoginActivity extends AppCompatActivity {
                                 String fullnameFromDB = snapshot.child(username).child("fullname").getValue(String.class);
                                 String usernameFromDB = snapshot.child(username).child ("username").getValue(String.class);
                                 String emailFromDB = snapshot.child(username).child("email").getValue(String.class);
+                                double walletFromDB = snapshot.child(username).child("wallet").getValue(double.class);
 
                                 Intent intent2 = new Intent(getApplicationContext(), HomeActivity.class);
                                 intent2.putExtra("fullname",fullnameFromDB);
                                 intent2.putExtra("username",usernameFromDB);
                                 intent2.putExtra("email",emailFromDB);
                                 intent2.putExtra("password",passwordFromDB);
+                                intent2.putExtra("wallet", walletFromDB);
 
                                 startActivity(intent2);
                             }

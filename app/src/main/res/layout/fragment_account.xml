@@ -11,48 +11,51 @@
 
     <LinearLayout
         style="@style/linearParent"
+        android:layout_height="615dp"
         android:layout_gravity="top"
         android:padding="@dimen/loginViewsMargin">
 
         <TextView
             style="@style/headerTextPrimary"
-            android:text="Account Detail"
-            android:layout_marginTop="@dimen/loginViewsMargin"/>
+            android:layout_marginTop="8dp"
+            android:text="Account Detail" />
 
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/parent"
             android:layout_marginTop="@dimen/signup_text_margin_top">
+
             <EditText
                 android:id="@+id/edittxtprofilFullName"
                 style="@style/modifiedEditText"
+                android:hint="Full Name"
                 android:inputType="text"
-                android:maxLines="1"
-                android:hint="Full Name"/>
+                android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/parent"
             android:layout_marginTop="@dimen/signup_text_margin_top">
+
             <EditText
                 android:id="@+id/edittxtprofilUsername"
                 style="@style/modifiedEditText"
+                android:hint="Username"
                 android:inputType="text"
-                android:maxLines="1"
-                android:hint="Username"/>
+                android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/parent"
             android:layout_marginTop="@dimen/signup_text_margin_top">
+
             <EditText
                 android:id="@+id/edittxtprofilEmail"
                 style="@style/modifiedEditText"
+                android:hint="@string/login_email_hint"
                 android:inputType="textEmailAddress"
-                android:maxLines="1"
-                android:hint="@string/login_email_hint"/>
+                android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
-
 
 
         <Button

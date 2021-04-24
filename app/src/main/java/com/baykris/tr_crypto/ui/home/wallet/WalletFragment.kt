@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.fragment.app.viewModels
 import com.baykris.tr_crypto.ui.home.settings.SettingsViewModel
 import com.baykris.tr_crypto.R
-import com.baykris.tr_crypto.databinding.FragmentSettingsBinding
+//import com.baykris.tr_crypto.databinding.FragmentSettingsBinding
 import com.baykris.tr_crypto.core.common.MainNavigationFragment
 import com.baykris.tr_crypto.databinding.FragmentWalletBinding
 import com.baykris.tr_crypto.util.ThemeHelper

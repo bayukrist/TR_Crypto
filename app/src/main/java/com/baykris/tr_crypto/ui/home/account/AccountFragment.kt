@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import com.baykris.tr_crypto.databinding.FragmentSettingsBinding
+//import com.baykris.tr_crypto.databinding.FragmentSettingsBinding
 import com.baykris.tr_crypto.core.common.MainNavigationFragment
 import com.baykris.tr_crypto.databinding.FragmentAccountBinding
 import com.baykris.tr_crypto.databinding.FragmentWalletBinding

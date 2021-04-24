@@ -5,10 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import com.baykris.tr_crypto.databinding.FragmentSettingsBinding
+//import com.baykris.tr_crypto.databinding.FragmentSettingsBinding
 import com.baykris.tr_crypto.core.common.MainNavigationFragment
 import com.baykris.tr_crypto.databinding.FragmentFavoritesBinding
-import com.baykris.tr_crypto.ui.home.settings.SettingsViewModel
 import com.baykris.tr_crypto.util.ThemeHelper
 import com.baykris.tr_crypto.util.ThemeMode
 import com.baykris.tr_crypto.util.extensions.doOnChange
@@ -19,20 +18,20 @@ import timber.log.Timber
 class SettingsFragment : MainNavigationFragment() {
 
     private val viewModel: SettingsViewModel by viewModels()
-    private lateinit var binding: FragmentSettingsBinding
+  //  private lateinit var binding: FragmentSettingsBinding
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentSettingsBinding.inflate(inflater, container, false)
-            .apply {
-                lifecycleOwner = viewLifecycleOwner
-                viewModel = this@SettingsFragment.viewModel
-            }
-        observeViewModel()
-        return binding.root
-    }
+  //  override fun onCreateView(
+     //   inflater: LayoutInflater, container: ViewGroup?,
+     //   savedInstanceState: Bundle?
+   // ): View? {
+    //    binding = FragmentSettingsBinding.inflate(inflater, container, false)
+      //      .apply {
+        //        lifecycleOwner = viewLifecycleOwner
+          //      viewModel = this@SettingsFragment.viewModel
+         //   }
+       // observeViewModel()
+       // return binding.root
+   // }
 
     override fun initializeViews() {
 

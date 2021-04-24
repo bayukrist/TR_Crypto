@@ -25,8 +25,7 @@ class HomeActivity : BaseActivity(),
     companion object {
         private val TOP_LEVEL_DESTINATIONS = setOf(
             R.id.navigation_coins_list,
-            R.id.navigation_favourites,
-            R.id.navigation_settings
+            R.id.navigation_favourites
         )
     }
 

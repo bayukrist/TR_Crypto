@@ -16,14 +16,14 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/favouritesRecyclerView"
-            android:layout_width="412dp"
-            android:layout_height="462dp"
+            android:layout_width="377dp"
+            android:layout_height="391dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.47"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintVertical_bias="0.714" />
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -38,7 +38,7 @@
             android:id="@+id/saldoAkunAnda"
             android:layout_width="153dp"
             android:layout_height="24dp"
-            android:layout_marginEnd="267dp"
+            android:layout_marginLeft="16dp"
             android:layout_marginBottom="652dp"
             android:text="Account Balance"
             android:textSize="18sp"
@@ -48,61 +48,41 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar"
-            app:layout_constraintVertical_bias="0.0"
-            android:layout_marginRight="267dp" />
+            app:layout_constraintVertical_bias="0.0" />
 
-        <TextView
-            android:id="@+id/nominalText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="283dp"
-            android:text="9999999"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/saldoAkunAnda" />
+
 
         <TextView
             android:id="@+id/rupiah"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="$"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="8dp"
+            android:text="$ 9.00"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/saldoAkunAnda" />
 
         <Button
-            android:id="@+id/buttonHistory"
-            android:layout_width="174dp"
-            android:layout_height="63dp"
-            android:layout_marginTop="89dp"
-            android:layout_marginEnd="16dp"
-            android:text="History"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
-
-        <Button
-            android:id="@+id/buttonTopup"
-            android:layout_width="174dp"
-            android:layout_height="63dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="25dp"
-            android:text="Deposit / Withdraw"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nominalText" />
+            app:layout_constraintTop_toBottomOf="@+id/rupiah"
+            android:id="@+id/btnDeposit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/button_rounded"
+            android:text="Deposit"
+            android:textColor="@color/white"
+            android:layout_marginHorizontal="16dp"/>
 
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="114dp"
-            android:layout_height="24dp"
-            android:layout_marginTop="36dp"
-            android:layout_marginEnd="297dp"
+            style="@style/headerTextPrimary"
+            android:layout_marginTop="@dimen/loginViewsMargin"
             android:text="Coin Balance"
-            android:textSize="18sp"
-            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonTopup" />
+            app:layout_constraintTop_toBottomOf="@+id/btnDeposit" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
