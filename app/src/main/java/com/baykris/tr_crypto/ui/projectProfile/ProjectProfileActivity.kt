@@ -105,8 +105,8 @@ class ProjectProfileActivity : BaseActivity() {
             }
 
             viewModel.historicalData.doOnChange(this) { historicalPriceList ->
-                lineChartTitle.text = getString(R.string.line_chart_title).format(30)
-                ChartHelper.displayHistoricalLineChart(lineChart, it, historicalPriceList)
+               lineChartTitle.text = getString(R.string.line_chart_title).format(30)
+               ChartHelper.displayHistoricalLineChart(lineChart, it, historicalPriceList)
             }
 
             viewModel.dataError.doOnChange(this) { error ->
