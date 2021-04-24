@@ -18,6 +18,10 @@ public class buy_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buy_activity);
 
+        try {
+            this.getSupportActionBar().hide();
+        }catch (NullPointerException e){}
+
         Intent intent = getIntent();
         Bundle bundle = getIntent().getExtras();
         String stringHargaCoin = intent.getStringExtra("HargaCoin");

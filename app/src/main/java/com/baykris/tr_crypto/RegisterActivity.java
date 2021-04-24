@@ -95,13 +95,14 @@ public class RegisterActivity extends AppCompatActivity {
         String email = edittxtRegisterEmail.getText().toString();
         String password = edittxtRegisterPassword.getText().toString();
         String password2 = edittxtConfirmPassword.getText().toString();
+        double wallet = 0;
 
         if(!email.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches() && password.length() >= 8 && password.equals(password2)){
             if(!password.isEmpty()){
                 if (TextUtils.isEmpty(username)) {
                     username = mFirebaseDatabase.push().getKey();
                 }
-                UserData userData = new UserData(fullname, username,email,password);
+                UserData userData = new UserData(fullname, username,email,password,wallet);
                 mFirebaseDatabase.child(username).setValue(userData);
                 Toast.makeText(RegisterActivity.this, R.string.message5, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(RegisterActivity.this , LoginActivity.class);

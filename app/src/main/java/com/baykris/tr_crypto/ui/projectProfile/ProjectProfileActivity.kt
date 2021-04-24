@@ -46,15 +46,6 @@ class ProjectProfileActivity : BaseActivity() {
             viewModel = this@ProjectProfileActivity.viewModel
         }
 
-        setSupportActionBar(toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setDisplayShowHomeEnabled(true)
-        val buyCoin = findViewById<Button>(R.id.buttonBuy)
-        val sellCoin = findViewById<Button>(R.id.buttonSell)
-        val hargaCoin = findViewById<TextView>(R.id.coinItemPriceTextView)
-        val namaCoin = findViewById<TextView>(R.id.coinItemNameTextView)
-        val logoCoin = findViewById<ImageView>(R.id.coinItemImageView)
-
         if (intent?.hasExtra(Constants.EXTRA_SYMBOL) == true) {
             symbol = intent?.getStringExtra(Constants.EXTRA_SYMBOL)
         }
@@ -62,6 +53,13 @@ class ProjectProfileActivity : BaseActivity() {
         if (intent?.hasExtra(Constants.EXTRA_SYMBOL_ID) == true) {
             symbolId = intent?.getStringExtra(Constants.EXTRA_SYMBOL_ID)
         }
+
+
+        val buyCoin = findViewById<Button>(R.id.buttonBuy)
+        val sellCoin = findViewById<Button>(R.id.buttonSell)
+        val hargaCoin = findViewById<TextView>(R.id.coinItemPriceTextView)
+        val namaCoin = findViewById<TextView>(R.id.coinItemNameTextView)
+        val logoCoin = findViewById<ImageView>(R.id.coinItemImageView)
 
         supportActionBar?.title = symbol ?: ""
         observeViewModel()
@@ -74,7 +72,7 @@ class ProjectProfileActivity : BaseActivity() {
             logoCoin.buildDrawingCache()
             val imageCoin: Bitmap = logoCoin.getDrawingCache()
 
-            val bundle = Bundle()
+             val bundle = Bundle()
             bundle.putParcelable("LogoCoin",imageCoin)
             val intent = Intent(this@ProjectProfileActivity, buy_activity::class.java)
             intent.putExtra("HargaCoin",stringHargaCoin)
@@ -82,6 +80,7 @@ class ProjectProfileActivity : BaseActivity() {
             intent.putExtras(bundle)
             startActivity(intent)
         }
+
         sellCoin.setOnClickListener{
             val stringHargaCoin = hargaCoin.text.toString()
             val stringNamaCoin = namaCoin.text.toString()
@@ -105,8 +104,8 @@ class ProjectProfileActivity : BaseActivity() {
             }
 
             viewModel.historicalData.doOnChange(this) { historicalPriceList ->
-               lineChartTitle.text = getString(R.string.line_chart_title).format(30)
-               ChartHelper.displayHistoricalLineChart(lineChart, it, historicalPriceList)
+                lineChartTitle.text = getString(R.string.line_chart_title).format(30)
+                ChartHelper.displayHistoricalLineChart(lineChart, it, historicalPriceList)
             }
 
             viewModel.dataError.doOnChange(this) { error ->
@@ -130,4 +129,5 @@ class ProjectProfileActivity : BaseActivity() {
         }
         return true
     }
+
 }

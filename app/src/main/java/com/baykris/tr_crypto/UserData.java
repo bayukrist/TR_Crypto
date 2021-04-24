@@ -5,16 +5,17 @@ public class UserData {
     private String username;
     private String email;
     private String password;
-
+    private double wallet;
     public UserData(){
 
     }
 
-    public UserData(String fullname, String username, String email, String password){
+    public UserData(String fullname, String username, String email, String password , double wallet){
         this.fullname = fullname;
         this.username = username;
         this.email = email;
         this.password = password;
+        this.wallet = wallet;
     }
 
     public String getFullname() {
@@ -47,5 +48,13 @@ public class UserData {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public double getWallet() {
+        return wallet;
+    }
+
+    public void setWallet(double wallet) {
+        this.wallet = wallet;
     }
 }

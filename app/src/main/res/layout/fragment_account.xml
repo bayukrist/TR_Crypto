@@ -9,104 +9,73 @@
             type="com.baykris.tr_crypto.ui.home.settings.SettingsViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/favouritesMainLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <LinearLayout
+        style="@style/linearParent"
+        android:layout_gravity="top"
+        android:padding="@dimen/loginViewsMargin">
+
+        <TextView
+            style="@style/headerTextPrimary"
+            android:text="Account Detail"
+            android:layout_marginTop="@dimen/loginViewsMargin"/>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/parent"
+            android:layout_marginTop="@dimen/signup_text_margin_top">
+            <EditText
+                android:id="@+id/edittxtprofilFullName"
+                style="@style/modifiedEditText"
+                android:inputType="text"
+                android:maxLines="1"
+                android:hint="Full Name"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/parent"
+            android:layout_marginTop="@dimen/signup_text_margin_top">
+            <EditText
+                android:id="@+id/edittxtprofilUsername"
+                style="@style/modifiedEditText"
+                android:inputType="text"
+                android:maxLines="1"
+                android:hint="Username"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/parent"
+            android:layout_marginTop="@dimen/signup_text_margin_top">
+            <EditText
+                android:id="@+id/edittxtprofilEmail"
+                style="@style/modifiedEditText"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:hint="@string/login_email_hint"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+
 
         <Button
-            android:id="@+id/buttonLogoutProfile"
-            android:layout_width="384dp"
-            android:layout_height="41dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="21dp"
-            android:layout_marginEnd="11dp"
-            android:layout_marginBottom="346dp"
-            android:text="Log Out"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonEditProfile"
-            android:layout_marginLeft="16dp" />
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/button_rounded"
+            android:text="Save"
+            android:textColor="@color/white" />
 
         <Button
-            android:id="@+id/buttonEditProfile"
-            android:layout_width="384dp"
-            android:layout_height="41dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="29dp"
-            android:layout_marginEnd="11dp"
-            android:text="Edit Profile"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textAlamatProfile" />
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            style="@style/Widget.Custom.Toolbar"
-            android:layout_width="0dp"
-            android:layout_height="?actionBarSize"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="92dp"
-            android:layout_height="96dp"
-            android:layout_marginStart="16dp"
-            android:visibility="visible"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar"
-            app:srcCompat="@drawable/ic_baseline_account_circle_24"
-            tools:srcCompat="@drawable/ic_baseline_account_circle_24"
-            tools:visibility="visible"
-            tools:ignore="VectorDrawableCompat" />
-
-        <TextView
-            android:id="@+id/textNamaProfile"
-            android:layout_width="280dp"
-            android:layout_height="32dp"
-            android:layout_marginEnd="13dp"
-            android:text="Nama Kamu Disini"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
-
-        <TextView
-            android:id="@+id/textUsernameProfile"
-            android:layout_width="280dp"
-            android:layout_height="32dp"
+            android:id="@+id/btnLogout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="12dp"
-            android:text="Username Kamu"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textNamaProfile" />
+            android:background="@drawable/button_rounded"
+            android:text="Log out"
+            android:textColor="@color/white" />
 
-        <TextView
-            android:id="@+id/textProfilEmail"
-            android:layout_width="381dp"
-            android:layout_height="38dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="14dp"
-            android:text="Email Kamu Disini"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-        <TextView
-            android:id="@+id/textAlamatProfile"
-            android:layout_width="379dp"
-            android:layout_height="32dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="16dp"
-            android:text="Alamat Kamu"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textProfilEmail" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
 </layout>
