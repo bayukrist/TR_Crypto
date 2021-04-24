@@ -48,6 +48,8 @@ public class LoginActivity extends AppCompatActivity {
         FirebaseDatabase mFirebaseInstance = FirebaseDatabase.getInstance();
         mFirebaseDatabase = mFirebaseInstance.getReference("users");
 
+
+
         txtViewRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

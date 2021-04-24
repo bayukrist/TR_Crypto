@@ -24,9 +24,7 @@
             android:layout_marginBottom="10dp"
             android:orientation="horizontal">
 
-            <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                xmlns:tools="http://schemas.android.com/tools"
+            <androidx.cardview.widget.CardView
                 android:layout_width="155dp"
                 android:layout_height="100dp"
                 android:layout_margin="@dimen/cardview_margin"
@@ -35,7 +33,8 @@
                 app:cardBackgroundColor="@color/card_view_background"
                 app:cardCornerRadius="@dimen/cardview_radius"
                 app:cardElevation="@dimen/cardview_elevation"
-                app:contentPadding="@dimen/cardview_padding">
+                app:contentPadding="@dimen/cardview_padding"
+                android:onClick="deposit">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -52,7 +51,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Aset"
+                        android:text="Deposit"
                         android:textAlignment="center"
                         android:textSize="20dp" />
 
@@ -101,41 +100,21 @@
         <TextView
             style="@style/headerTextPrimary"
             android:layout_marginTop="8dp"
-            android:text="Dompet Anda" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/parent"
-            android:layout_marginTop="@dimen/signup_text_margin_top">
-
-            <EditText
-                android:id="@+id/edittxtprofilWallet"
-                style="@style/modifiedEditText"
-                android:hint="Rp."
-                android:inputType="number"
-                android:maxLines="1" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <Button
-            android:id="@+id/btnDeposit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/button_rounded"
-            android:text="Tambahkan "
-            android:textColor="@color/white" />
-
-        <TextView
-            style="@style/headerTextPrimary"
-            android:layout_marginTop="8dp"
             android:text="Account Detail" />
 
-
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="Rp. "
+            android:textSize="20dp"
+            android:id="@+id/txtviewprofilWallet"/>
 
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/parent"
             android:layout_marginTop="@dimen/signup_text_margin_top">
+
 
             <EditText
                 android:id="@+id/edittxtprofilFullName"
