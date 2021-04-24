@@ -12,7 +12,7 @@ import javax.inject.Inject
 import com.baykris.tr_crypto.api.Result
 
 class ProjectProfileViewModel @ViewModelInject constructor(private val repository: ProjectProfileRepository) :
-    BaseViewModel() {
+        BaseViewModel() {
 
     fun projectBySymbol(symbol: String) = repository.projectBySymbol(symbol)
 

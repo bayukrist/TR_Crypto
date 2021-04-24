@@ -13,14 +13,14 @@
         android:theme="@style/Base.AppTheme">
         <activity android:name=".sell_activity"/>
         <activity android:name=".buy_activity"/>
-        <activity android:name=".RegisterActivity"/>
-        <activity android:name=".ui.projectProfile.ProjectProfileActivity"/>
+        <activity android:name=".ui.home.HomeActivity"/>
         <activity android:name=".LoginActivity"/>
-        <activity android:name=".ui.home.HomeActivity">
+        <activity android:name=".RegisterActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.projectProfile.ProjectProfileActivity"/>
     </application>
 </manifest>

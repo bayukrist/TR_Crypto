@@ -26,6 +26,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_project_profile.*
 
 
+
 @AndroidEntryPoint
 class ProjectProfileActivity : BaseActivity() {
 

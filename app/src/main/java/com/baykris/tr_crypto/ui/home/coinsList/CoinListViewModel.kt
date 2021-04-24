@@ -16,7 +16,7 @@ import com.baykris.tr_crypto.data.local.database.CoinsListEntity
 import timber.log.Timber
 
 class CoinListViewModel @ViewModelInject constructor(private val repository: CoinsListRepository) :
-    BaseViewModel() {
+        BaseViewModel() {
 
     val coinsListData = repository.allCoinsLD
 

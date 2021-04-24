@@ -19,6 +19,7 @@ import com.baykris.tr_crypto.util.extensions.doOnChange
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_list.*
 
+
 @AndroidEntryPoint
 class CoinListFragment : MainNavigationFragment(), OnItemClickCallback {
 
@@ -27,14 +28,14 @@ class CoinListFragment : MainNavigationFragment(), OnItemClickCallback {
     private var coinsListAdapter = CoinsListAdapter(this)
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         binding = FragmentListBinding.inflate(inflater, container, false)
-            .apply {
-                lifecycleOwner = viewLifecycleOwner
-                viewModel = this@CoinListFragment.viewModel
-            }
+                .apply {
+                    lifecycleOwner = viewLifecycleOwner
+                    viewModel = this@CoinListFragment.viewModel
+                }
         observeViewModel()
         return binding.root
     }
@@ -55,7 +56,7 @@ class CoinListFragment : MainNavigationFragment(), OnItemClickCallback {
     override fun observeViewModel() {
         viewModel.isLoading.doOnChange(this) {
             coinsListLoading.visibility =
-                if (viewModel.isListEmpty() && it) View.VISIBLE else View.GONE
+                    if (viewModel.isListEmpty() && it) View.VISIBLE else View.GONE
 
             if (it) {
                 coinsListErrorView.visibility = View.GONE
@@ -66,15 +67,15 @@ class CoinListFragment : MainNavigationFragment(), OnItemClickCallback {
             coinsListAdapter.updateList(it)
 
             coinsListErrorView.visibility =
-                if (viewModel.isListEmpty()) View.VISIBLE else View.GONE
+                    if (viewModel.isListEmpty()) View.VISIBLE else View.GONE
         }
 
         viewModel.favouriteStock.doOnChange(this) {
             it?.let {
                 showToast(
-                    getString(if (it.isFavourite) R.string.added_to_favourite else R.string.removed_to_favourite).format(
-                        it.symbol
-                    )
+                        getString(if (it.isFavourite) R.string.added_to_favourite else R.string.removed_to_favourite).format(
+                                it.symbol
+                        )
                 )
             }
         }
@@ -83,11 +84,11 @@ class CoinListFragment : MainNavigationFragment(), OnItemClickCallback {
     override fun onItemClick(symbol: String, id: String) {
         requireActivity().run {
             startActivity(
-                Intent(this, ProjectProfileActivity::class.java)
-                    .apply {
-                        putExtra(Constants.EXTRA_SYMBOL, symbol)
-                        putExtra(Constants.EXTRA_SYMBOL_ID, id)
-                    }
+                    Intent(this, ProjectProfileActivity::class.java)
+                            .apply {
+                                putExtra(Constants.EXTRA_SYMBOL, symbol)
+                                putExtra(Constants.EXTRA_SYMBOL_ID, id)
+                            }
             )
         }
 

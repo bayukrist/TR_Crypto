@@ -51,18 +51,18 @@ public class RegisterActivity extends AppCompatActivity {
         mFirebaseDatabase = mFirebaseInstance.getReference("users");
 
         // store app title to 'app_title' node
-        mFirebaseInstance.getReference("app_title").setValue("User Database");
+       mFirebaseInstance.getReference("app_title").setValue("User Database");
 
         // app_title change listener
         mFirebaseInstance.getReference("app_title").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Log.e("TAG", "App title updated");
+               Log.e("TAG", "App title updated");
 
                 String appTitle = dataSnapshot.getValue(String.class);
 
                 // update toolbar title
-                getSupportActionBar().setTitle(appTitle);
+               getSupportActionBar().setTitle(appTitle);
             }
 
             @Override
@@ -70,7 +70,8 @@ public class RegisterActivity extends AppCompatActivity {
                 // Failed to read value
                 Log.e("TAG", "Failed to read app title value.", error.toException());
             }
-        });
+        }
+        );
 
         textViewLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,7 +98,6 @@ public class RegisterActivity extends AppCompatActivity {
 
         if(!email.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches() && password.length() >= 8 && password.equals(password2)){
             if(!password.isEmpty()){
-
                 if (TextUtils.isEmpty(username)) {
                     username = mFirebaseDatabase.push().getKey();
                 }
@@ -107,6 +107,7 @@ public class RegisterActivity extends AppCompatActivity {
                 Intent intent = new Intent(RegisterActivity.this , LoginActivity.class);
                 startActivity(intent);
                 finish();
+
             }else {
                 edittxtRegisterPassword.setError(getText(R.string.message3));
             }
