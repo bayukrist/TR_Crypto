@@ -20,7 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 
 
 public class RegisterActivity extends AppCompatActivity {
-    private EditText edittxtRegisterFullName, edittxtRegisterUsername, edittxtRegisterEmail, edittxtRegisterPassword, edittxtConfirmPassword;
+    private EditText edittxtRegisterFullName, edittxtRegisterUsername, edittxtRegisterEmail, edittxtRegisterPassword, edittxtConfirmPassword,edittxtRegisterPhone;
     private Button btnRegister;
     private TextView textViewLogin;
 
@@ -42,6 +42,7 @@ public class RegisterActivity extends AppCompatActivity {
         edittxtRegisterEmail = findViewById(R.id.edittxtRegisterEmail);
         edittxtRegisterPassword =  findViewById(R.id.edittxtRegisterPassword);
         edittxtConfirmPassword = findViewById(R.id.edittxtComfirmPassword);
+        edittxtRegisterPhone = findViewById(R.id.edittxtRegisterPhone);
         textViewLogin = findViewById(R.id.textViewLogin);
         btnRegister = findViewById(R.id.btnRegister);
 
@@ -90,10 +91,11 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void createUser(){
-        String fullname = edittxtRegisterFullName.getText().toString();
-        String username = edittxtRegisterUsername.getText().toString();
         String email = edittxtRegisterEmail.getText().toString();
+        String fullname = edittxtRegisterFullName.getText().toString();
         String password = edittxtRegisterPassword.getText().toString();
+        String phone = edittxtRegisterPhone.getText().toString();
+        String username = edittxtRegisterUsername.getText().toString();
         String password2 = edittxtConfirmPassword.getText().toString();
         double wallet = 0;
 
@@ -102,7 +104,7 @@ public class RegisterActivity extends AppCompatActivity {
                 if (TextUtils.isEmpty(username)) {
                     username = mFirebaseDatabase.push().getKey();
                 }
-                UserData userData = new UserData(fullname, username,email,password,wallet);
+                UserData userData = new UserData(email,fullname, password, phone, username,wallet);
                 mFirebaseDatabase.child(username).setValue(userData);
                 Toast.makeText(RegisterActivity.this, R.string.message5, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(RegisterActivity.this , LoginActivity.class);
@@ -118,6 +120,8 @@ public class RegisterActivity extends AppCompatActivity {
             Toast.makeText(RegisterActivity.this, R.string.message7, Toast.LENGTH_SHORT).show();
         }else if(password.length() < 8){
             edittxtRegisterPassword.setError(getText(R.string.message8));
+        }else if(phone.isEmpty()){
+            edittxtRegisterPhone.setError(getText(R.string.message3));
         }
         else {
             edittxtRegisterEmail.setError(getText(R.string.message4));

@@ -4,7 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
 import androidx.fragment.app.viewModels
+import com.baykris.tr_crypto.R
 //import com.baykris.tr_crypto.databinding.FragmentSettingsBinding
 import com.baykris.tr_crypto.core.common.MainNavigationFragment
 import com.baykris.tr_crypto.databinding.FragmentAccountBinding
@@ -21,11 +24,17 @@ class AccountFragment : MainNavigationFragment() {
 
     private val viewModel: SettingsViewModel by viewModels()
     private lateinit var binding: FragmentAccountBinding
+     
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
+
+
+
+
     ): View? {
+
         binding = FragmentAccountBinding.inflate(inflater, container, false)
             .apply {
                 lifecycleOwner = viewLifecycleOwner
