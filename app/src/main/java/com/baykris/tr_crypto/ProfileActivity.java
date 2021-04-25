@@ -17,7 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class ProfileActivity extends AppCompatActivity {
     private EditText edittxtprofilFullName, edittxtprofilEmail ,edittxtxprofilPhone;
     private TextView txtviewprofilWallet;
-    private String username,wallet;
+    private String username,wallet,fullname,phone,email,btc,bnb,eth,husd,omg;
     private Button btnUpdate, btnLogout;
     private FirebaseAuth auth;
     DatabaseReference mFirebaseDatabase;
@@ -45,11 +45,16 @@ public class ProfileActivity extends AppCompatActivity {
 
 
         Intent intent = getIntent();
-        String fullname = intent.getStringExtra("fullname");
+        fullname = intent.getStringExtra("fullname");
         username = intent.getStringExtra("username");
-        String phone = intent.getStringExtra("phone");
-        String email = intent.getStringExtra("email");
+        phone = intent.getStringExtra("phone");
+        email = intent.getStringExtra("email");
         wallet = intent.getStringExtra("wallet");
+        btc = intent.getStringExtra("btc");
+        bnb = intent.getStringExtra("bnb");
+        eth = intent.getStringExtra("eth");
+        husd = intent.getStringExtra("husd");
+        omg = intent.getStringExtra("omg");
 
         edittxtprofilFullName.setText(fullname);
         edittxtprofilEmail.setText(email);
@@ -89,9 +94,32 @@ public class ProfileActivity extends AppCompatActivity {
 
     public void deposit(View view){
         Intent intentdepo = new Intent(ProfileActivity.this, DepositActivity.class);
+        intentdepo.putExtra("fullname", fullname);
+        intentdepo.putExtra("email", email);
         intentdepo.putExtra("username", username);
+        intentdepo.putExtra("phone", phone);
         intentdepo.putExtra("wallet",wallet);
+        intentdepo.putExtra("btc",btc);
+        intentdepo.putExtra("bnb",bnb);
+        intentdepo.putExtra("eth",eth);
+        intentdepo.putExtra("husd",husd);
+        intentdepo.putExtra("omg",omg);
         startActivity(intentdepo);
+    }
+
+    public void shoplist(View view){
+        Intent intentshoplist = new Intent(ProfileActivity.this, ShopList.class);
+        intentshoplist.putExtra("fullname", fullname);
+        intentshoplist.putExtra("email", email);
+        intentshoplist.putExtra("username", username);
+        intentshoplist.putExtra("phone", phone);
+        intentshoplist.putExtra("wallet",wallet);
+        intentshoplist.putExtra("btc",btc);
+        intentshoplist.putExtra("bnb",bnb);
+        intentshoplist.putExtra("eth",eth);
+        intentshoplist.putExtra("husd",husd);
+        intentshoplist.putExtra("omg",omg);
+        startActivity(intentshoplist);
     }
 
 

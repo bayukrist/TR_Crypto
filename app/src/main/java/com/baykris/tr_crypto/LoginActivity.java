@@ -12,7 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.baykris.tr_crypto.ui.home.HomeActivity;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -83,6 +83,16 @@ public class LoginActivity extends AppCompatActivity {
                                 String fullnameFromDB = snapshot.child(username).child("fullname").getValue(String.class);
                                 String phoneFromDB = snapshot.child(username).child("phone").getValue(String.class);
                                 String usernameFromDB = snapshot.child(username).child ("username").getValue(String.class);
+                                double btcFromDB = snapshot.child(username).child("btc").getValue(double.class);
+                                String btcstring = Double.toString(btcFromDB);
+                                double bnbFromDB = snapshot.child(username).child("bnb").getValue(double.class);
+                                String bnbstring = Double.toString(bnbFromDB);
+                                double ethFromDB = snapshot.child(username).child("eth").getValue(double.class);
+                                String ethstring = Double.toString(ethFromDB);
+                                double husdFromDB = snapshot.child(username).child("husd").getValue(double.class);
+                                String husdstring = Double.toString(husdFromDB);
+                                double omgFromDB = snapshot.child(username).child("omg").getValue(double.class);
+                                String omgstring = Double.toString(omgFromDB);
                                 double walletFromDB = snapshot.child(username).child("wallet").getValue(double.class);
                                 String walletstring = Double.toString(walletFromDB);
 
@@ -92,6 +102,11 @@ public class LoginActivity extends AppCompatActivity {
                                 intent2.putExtra("email",emailFromDB);
                                 intent2.putExtra("phone",phoneFromDB);
                                 intent2.putExtra("wallet",walletstring);
+                                intent2.putExtra("btc",btcstring);
+                                intent2.putExtra("bnb",bnbstring);
+                                intent2.putExtra("eth",ethstring);
+                                intent2.putExtra("husd",husdstring);
+                                intent2.putExtra("omg",omgstring);
 
 
                                 startActivity(intent2);

@@ -66,6 +66,7 @@
                 android:layout_height="100dp"
                 android:layout_margin="@dimen/cardview_margin"
                 android:clickable="true"
+                android:onClick="shoplist"
                 android:foreground="?android:attr/selectableItemBackground"
                 app:cardBackgroundColor="@color/card_view_background"
                 app:cardCornerRadius="@dimen/cardview_radius"
@@ -100,6 +101,7 @@
         <TextView
             style="@style/headerTextPrimary"
             android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
             android:text="Account Detail" />
 
         <TextView
