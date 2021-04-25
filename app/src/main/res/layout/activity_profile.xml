@@ -51,7 +51,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Deposit"
+                        android:text="@string/deposit"
                         android:textAlignment="center"
                         android:textSize="20dp" />
 
@@ -89,7 +89,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Shop"
+                        android:text="@string/shop"
                         android:textAlignment="center"
                         android:textSize="20dp" />
 
@@ -102,7 +102,7 @@
             style="@style/headerTextPrimary"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"
-            android:text="Account Detail" />
+            android:text="@string/account_detail" />
 
         <TextView
             android:layout_width="match_parent"
@@ -121,7 +121,7 @@
             <EditText
                 android:id="@+id/edittxtprofilFullName"
                 style="@style/modifiedEditText"
-                android:hint="Full Name"
+                android:hint="@string/fullname"
                 android:inputType="text"
                 android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -133,7 +133,7 @@
             <EditText
                 android:id="@+id/edittxtprofilPhone"
                 style="@style/modifiedEditText"
-                android:hint="Phone Number"
+                android:hint="@string/phone"
                 android:inputType="number"
                 android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -158,7 +158,7 @@
             android:layout_gravity="bottom"
             android:layout_marginTop="16dp"
             android:background="@drawable/button_rounded"
-            android:text="Update"
+            android:text="@string/update"
             android:textColor="@color/white" />
 
         <Button
@@ -168,7 +168,7 @@
             android:layout_gravity="bottom"
             android:layout_marginTop="16dp"
             android:background="@drawable/button_rounded"
-            android:text="Log out"
+            android:text="@string/logout"
             android:textColor="@color/white" />
     </LinearLayout>
 

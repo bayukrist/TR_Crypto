@@ -16,4 +16,25 @@
     <string name = "message7">Passwortbestätigung stimmt nicht mit Passwort überein!</string>
     <string name = "message8">Das Passwort muss aus mindestens 8 Zeichen bestehen!</string>
 
+    <string name = "kurang_uang"> "Sie haben nicht genug Geld!" </string>
+    <string name = "kurang_koin"> "Sie haben nicht genug Münzen!" </string>
+    <string name = "please_coin"> Bitte geben Sie die Anzahl der Münzen ein! </string>
+
+    <string name = "fullname"> Vollständiger Name </string>
+    <string name = "username"> Benutzername </string>
+    <string name = "phone"> Telefonnummer </string>
+    <string name = "deposit"> Einzahlung </string>
+    <string name = "shop"> Shop </string>
+    <string name = "account_detail"> Kontodetails </string>
+    <string name = "update"> Update </string>
+    <string name = "logout"> Abmelden </string>
+    <string name = "your_wallet"> Ihre Brieftasche </string>
+    <string name = "enter_nominal"> Geben Sie Nominal </string>
+    <string name = "add"> Hinzufügen </string>
+    <string name = "back"> Zurück </string>
+    <string name = "enter_coin"> Geben Sie die Anzahl der Münzen ein </string>
+    <string name = "buy"> Kaufen </string>
+    <string name = "sell"> Verkaufen </string>
+    <string name = "number_coin"> Anzahl der Münzen: </string>
+
 </resources>

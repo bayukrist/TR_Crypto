@@ -57,7 +57,7 @@ public class HusdActivity extends AppCompatActivity {
         btnHome4 =  findViewById(R.id.btnHome4);
 
         txtviewHUSDWallet.setText("Rp. "+wallet);
-        txtviewhusd_aset.setText("Jumlah Koin : "+husd);
+        txtviewhusd_aset.setText(getText(R.string.number_coin)+husd);
         tmp_aset_husd = Double.parseDouble(husd);
         tmp_wallet = Double.parseDouble(wallet);
         double hargahusd = Double.parseDouble(tview_price_husd.getText().toString());
@@ -70,16 +70,16 @@ public class HusdActivity extends AppCompatActivity {
                     if(tmp_wallet > totalbeli_husd){
                         tmp_wallet= tmp_wallet-totalbeli_husd;
                         tmp_aset_husd = tmp_aset_husd+jumlah_beli_husd;
-                        txtviewhusd_aset.setText("Jumlah Koin : "+Double.toString(tmp_aset_husd));
+                        txtviewhusd_aset.setText(getText(R.string.number_coin)+Double.toString(tmp_aset_husd));
                         txtviewHUSDWallet.setText("Rp. "+tmp_wallet);
                         mFirebaseDatabase.child(username).child("husd").setValue(tmp_aset_husd);
                         mFirebaseDatabase.child(username).child("wallet").setValue(tmp_wallet);
 
                     }else {
-                        Toast.makeText(HusdActivity.this, "Uang anda tidak cukup", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(HusdActivity.this, getText(R.string.kurang_uang), Toast.LENGTH_LONG).show();
                     }
                 }else {
-                    Toast.makeText(HusdActivity.this, "Harap masukkan jumlah koin yang ingin dibeli!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(HusdActivity.this, getText(R.string.please_coin), Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -93,16 +93,16 @@ public class HusdActivity extends AppCompatActivity {
                     if(tmp_aset_husd > 0 && tmp_aset_husd >= Double.parseDouble(edittxtbelanjaHUSD.getText().toString())){
                         tmp_wallet= tmp_wallet+totaljual_husd;
                         tmp_aset_husd = tmp_aset_husd-jumlah_jual_husd;
-                        txtviewhusd_aset.setText("Jumlah Koin : "+Double.toString(tmp_aset_husd));
+                        txtviewhusd_aset.setText(getText(R.string.number_coin)+Double.toString(tmp_aset_husd));
                         txtviewHUSDWallet.setText("Rp. "+tmp_wallet);
                         mFirebaseDatabase.child(username).child("husd").setValue(tmp_aset_husd);
                         mFirebaseDatabase.child(username).child("wallet").setValue(tmp_wallet);
 
                     }else {
-                        Toast.makeText(HusdActivity.this, "Anda tidak memiliki koin yang cukup", Toast.LENGTH_LONG).show();
+                        Toast.makeText(HusdActivity.this, getText(R.string.kurang_koin), Toast.LENGTH_LONG).show();
                     }
                 }else if(edittxtbelanjaHUSD.getText().toString().isEmpty()){
-                    Toast.makeText(HusdActivity.this, "Harap masukkan jumlah koin yang ingin dijual!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(HusdActivity.this, getText(R.string.please_coin), Toast.LENGTH_LONG).show();
                 }
             }
         });

@@ -57,7 +57,7 @@ public class EthActivity extends AppCompatActivity {
         btnHome3 =  findViewById(R.id.btnHome3);
 
         txtviewETHWallet.setText("Rp. "+wallet);
-        txtvieweth_aset.setText("Jumlah Koin : "+eth);
+        txtvieweth_aset.setText(getText(R.string.number_coin)+eth);
         tmp_aset_eth = Double.parseDouble(eth);
         tmp_wallet = Double.parseDouble(wallet);
         double hargaeth = Double.parseDouble(tview_price_eth.getText().toString());
@@ -70,16 +70,16 @@ public class EthActivity extends AppCompatActivity {
                     if(tmp_wallet > totalbeli_eth){
                         tmp_wallet= tmp_wallet-totalbeli_eth;
                         tmp_aset_eth = tmp_aset_eth+jumlah_beli_eth;
-                        txtvieweth_aset.setText("Jumlah Koin : "+Double.toString(tmp_aset_eth));
+                        txtvieweth_aset.setText(getText(R.string.number_coin)+Double.toString(tmp_aset_eth));
                         txtviewETHWallet.setText("Rp. "+tmp_wallet);
                         mFirebaseDatabase.child(username).child("eth").setValue(tmp_aset_eth);
                         mFirebaseDatabase.child(username).child("wallet").setValue(tmp_wallet);
 
                     }else {
-                        Toast.makeText(EthActivity.this, "Uang anda tidak cukup", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(EthActivity.this, getText(R.string.kurang_uang), Toast.LENGTH_LONG).show();
                     }
                 }else {
-                    Toast.makeText(EthActivity.this, "Harap masukkan jumlah koin yang ingin dibeli!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EthActivity.this, getText(R.string.please_coin), Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -93,16 +93,16 @@ public class EthActivity extends AppCompatActivity {
                     if(tmp_aset_eth > 0 && tmp_aset_eth >= Double.parseDouble(edittxtbelanjaETH.getText().toString())){
                         tmp_wallet= tmp_wallet+totaljual_eth;
                         tmp_aset_eth = tmp_aset_eth-jumlah_jual_eth;
-                        txtvieweth_aset.setText("Jumlah Koin : "+Double.toString(tmp_aset_eth));
+                        txtvieweth_aset.setText(getText(R.string.number_coin)+Double.toString(tmp_aset_eth));
                         txtviewETHWallet.setText("Rp. "+tmp_wallet);
                         mFirebaseDatabase.child(username).child("eth").setValue(tmp_aset_eth);
                         mFirebaseDatabase.child(username).child("wallet").setValue(tmp_wallet);
 
                     }else {
-                        Toast.makeText(EthActivity.this, "Anda tidak memiliki koin yang cukup", Toast.LENGTH_LONG).show();
+                        Toast.makeText(EthActivity.this, getText(R.string.kurang_koin), Toast.LENGTH_LONG).show();
                     }
                 }else if(edittxtbelanjaETH.getText().toString().isEmpty()){
-                    Toast.makeText(EthActivity.this, "Harap masukkan jumlah koin yang ingin dijual!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(EthActivity.this, getText(R.string.please_coin), Toast.LENGTH_LONG).show();
                 }
             }
         });

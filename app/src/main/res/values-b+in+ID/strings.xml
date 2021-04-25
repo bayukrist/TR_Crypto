@@ -16,4 +16,24 @@
     <string name="message7">"Kata sandi yang ditulis tidak sama"</string>
     <string name="message8">Kata sandi harus memiliki setidaknya 8 karakter!</string>
 
+    <string name="kurang_uang">"Anda tidak memiliki cukup uang!"</string>
+    <string name="kurang_koin">"Anda tidak memiliki cukup koin!"</string>
+    <string name="please_coin">Harap masukkan jumlah koin!</string>
+
+    <string name="fullname">Nama Lengkap</string>
+    <string name="username">Nama Pengguna</string>
+    <string name="phone">Nomor Telepon</string>
+    <string name="deposit">Deposit</string>
+    <string name="shop">Belanja</string>
+    <string name="account_detail">Detail Akun</string>
+    <string name="update">Perbarui</string>
+    <string name="logout">Keluar</string>
+    <string name="your_wallet">Dompet Anda</string>
+    <string name="enter_nominal">Masukkan Nominal</string>
+    <string name="add">Tambahkan</string>
+    <string name="back">Kembali</string>
+    <string name="enter_coin">Masukkan Jumlah Koin</string>
+    <string name="buy">Beli</string>
+    <string name="sell">Jual</string>
+    <string name="number_coin">Jumlah Koin : </string>
 </resources>

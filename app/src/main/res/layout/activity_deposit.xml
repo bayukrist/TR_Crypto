@@ -10,7 +10,7 @@
     <TextView
         style="@style/headerTextPrimary"
         android:layout_marginTop="24dp"
-        android:text="Dompet Anda" />
+        android:text="@string/your_wallet" />
 
     <TextView
         android:layout_width="match_parent"
@@ -28,7 +28,7 @@
         <EditText
             android:id="@+id/edittxtDeposit"
             style="@style/modifiedEditText"
-            android:hint="Masukkan Nominal"
+            android:hint="@string/enter_nominal"
             android:inputType="number"
             android:layout_marginHorizontal="16dp"
             android:maxLines="1" />
@@ -42,7 +42,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginHorizontal="8dp"
         android:background="@drawable/button_rounded"
-        android:text="Tambahkan"
+        android:text="@string/add"
         android:textColor="@color/white" />
 
     <Button
@@ -53,7 +53,7 @@
         android:layout_marginHorizontal="8dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/button_rounded"
-        android:text="Kembali"
+        android:text="@string/back"
         android:textColor="@color/white" />
 
 </LinearLayout>

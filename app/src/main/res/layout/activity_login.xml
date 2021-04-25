@@ -81,7 +81,7 @@
                                 style="@style/modifiedEditText"
                                 android:inputType="text"
                                 android:maxLines="1"
-                                android:hint="Username"/>
+                                android:hint="@string/username"/>
                         </com.google.android.material.textfield.TextInputLayout>
 
                         <com.google.android.material.textfield.TextInputLayout
@@ -106,7 +106,7 @@
                             android:layout_gravity="center"
                             android:textColor="@color/white"
                             android:layout_marginTop="16dp"
-                            android:text="Login" />
+                            android:text="@string/login" />
 
                         <TextView
                             android:id="@+id/txtViewRegister"

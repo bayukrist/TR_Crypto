@@ -77,7 +77,7 @@
                                 style="@style/modifiedEditText"
                                 android:inputType="text"
                                 android:maxLines="1"
-                                android:hint="Full Name"/>
+                                android:hint="@string/fullname"/>
                         </com.google.android.material.textfield.TextInputLayout>
 
                         <com.google.android.material.textfield.TextInputLayout
@@ -88,7 +88,7 @@
                                 style="@style/modifiedEditText"
                                 android:inputType="text"
                                 android:maxLines="1"
-                                android:hint="Username"/>
+                                android:hint="@string/username"/>
                         </com.google.android.material.textfield.TextInputLayout>
 
                         <com.google.android.material.textfield.TextInputLayout
@@ -99,7 +99,7 @@
                                 style="@style/modifiedEditText"
                                 android:inputType="number"
                                 android:maxLines="1"
-                                android:hint="Phone Number"/>
+                                android:hint="@string/phone"/>
                         </com.google.android.material.textfield.TextInputLayout>
 
                         <com.google.android.material.textfield.TextInputLayout

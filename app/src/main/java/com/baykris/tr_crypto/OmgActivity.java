@@ -57,7 +57,7 @@ public class OmgActivity extends AppCompatActivity {
         btnHome5 =  findViewById(R.id.btnHome5);
 
         txtviewOMGWallet.setText("Rp. "+wallet);
-        txtviewomg_aset.setText("Jumlah Koin : "+omg);
+        txtviewomg_aset.setText(getText(R.string.number_coin)+omg);
         tmp_aset_omg = Double.parseDouble(omg);
         tmp_wallet = Double.parseDouble(wallet);
         double hargaomg = Double.parseDouble(tview_price_omg.getText().toString());
@@ -70,16 +70,16 @@ public class OmgActivity extends AppCompatActivity {
                     if(tmp_wallet > totalbeli_omg){
                         tmp_wallet= tmp_wallet-totalbeli_omg;
                         tmp_aset_omg = tmp_aset_omg+jumlah_beli_omg;
-                        txtviewomg_aset.setText("Jumlah Koin : "+Double.toString(tmp_aset_omg));
+                        txtviewomg_aset.setText(getText(R.string.number_coin)+Double.toString(tmp_aset_omg));
                         txtviewOMGWallet.setText("Rp. "+tmp_wallet);
                         mFirebaseDatabase.child(username).child("omg").setValue(tmp_aset_omg);
                         mFirebaseDatabase.child(username).child("wallet").setValue(tmp_wallet);
 
                     }else {
-                        Toast.makeText(OmgActivity.this, "Uang anda tidak cukup", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(OmgActivity.this, getText(R.string.kurang_uang), Toast.LENGTH_LONG).show();
                     }
                 }else {
-                    Toast.makeText(OmgActivity.this, "Harap masukkan jumlah koin yang ingin dibeli!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(OmgActivity.this, getText(R.string.please_coin), Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -99,10 +99,10 @@ public class OmgActivity extends AppCompatActivity {
                         mFirebaseDatabase.child(username).child("wallet").setValue(tmp_wallet);
 
                     }else {
-                        Toast.makeText(OmgActivity.this, "Anda tidak memiliki koin yang cukup", Toast.LENGTH_LONG).show();
+                        Toast.makeText(OmgActivity.this, getText(R.string.kurang_koin), Toast.LENGTH_LONG).show();
                     }
                 }else if(edittxtbelanjaOMG.getText().toString().isEmpty()){
-                    Toast.makeText(OmgActivity.this, "Harap masukkan jumlah koin yang ingin dijual!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(OmgActivity.this, getText(R.string.please_coin), Toast.LENGTH_LONG).show();
                 }
             }
         });

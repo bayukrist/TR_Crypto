@@ -57,7 +57,7 @@ public class BnbActivity extends AppCompatActivity {
         btnHome1 =  findViewById(R.id.btnHome1);
 
         txtviewBNBWallet.setText("Rp. "+wallet);
-        txtviewbnb_aset.setText("Jumlah Koin : "+bnb);
+        txtviewbnb_aset.setText(getText(R.string.number_coin)+bnb);
         tmp_aset_bnb = Double.parseDouble(bnb);
         tmp_wallet = Double.parseDouble(wallet);
         double hargabnb = Double.parseDouble(tview_price_bnb.getText().toString());
@@ -70,16 +70,16 @@ public class BnbActivity extends AppCompatActivity {
                   if(tmp_wallet > totalbeli_bnb){
                         tmp_wallet= tmp_wallet-totalbeli_bnb;
                         tmp_aset_bnb = tmp_aset_bnb+jumlah_beli_bnb;
-                      txtviewbnb_aset.setText("Jumlah Koin : "+Double.toString(tmp_aset_bnb));
+                      txtviewbnb_aset.setText(getText(R.string.number_coin)+Double.toString(tmp_aset_bnb));
                         txtviewBNBWallet.setText("Rp. "+tmp_wallet);
                       mFirebaseDatabase.child(username).child("bnb").setValue(tmp_aset_bnb);
                       mFirebaseDatabase.child(username).child("wallet").setValue(tmp_wallet);
 
                   }else {
-                      Toast.makeText(BnbActivity.this, "Uang anda tidak cukup", Toast.LENGTH_SHORT).show();
+                      Toast.makeText(BnbActivity.this, getText(R.string.kurang_uang), Toast.LENGTH_LONG).show();
                   }
               }else {
-                  Toast.makeText(BnbActivity.this, "Harap masukkan jumlah koin yang ingin dibeli!", Toast.LENGTH_SHORT).show();
+                  Toast.makeText(BnbActivity.this, getText(R.string.please_coin), Toast.LENGTH_LONG).show();
               }
             }
         });
@@ -93,16 +93,16 @@ public class BnbActivity extends AppCompatActivity {
                     if(tmp_aset_bnb > 0 && tmp_aset_bnb >= Double.parseDouble(edittxtbelanjaBNB.getText().toString())){
                         tmp_wallet= tmp_wallet+totaljual_bnb;
                         tmp_aset_bnb = tmp_aset_bnb-jumlah_jual_bnb;
-                        txtviewbnb_aset.setText("Jumlah Koin : "+Double.toString(tmp_aset_bnb));
+                        txtviewbnb_aset.setText(getText(R.string.number_coin)+Double.toString(tmp_aset_bnb));
                         txtviewBNBWallet.setText("Rp. "+tmp_wallet);
                         mFirebaseDatabase.child(username).child("bnb").setValue(tmp_aset_bnb);
                         mFirebaseDatabase.child(username).child("wallet").setValue(tmp_wallet);
 
                     }else {
-                        Toast.makeText(BnbActivity.this, "Anda tidak memiliki koin yang cukup", Toast.LENGTH_LONG).show();
+                        Toast.makeText(BnbActivity.this, getText(R.string.kurang_koin), Toast.LENGTH_LONG).show();
                     }
                 }else if(edittxtbelanjaBNB.getText().toString().isEmpty()){
-                    Toast.makeText(BnbActivity.this, "Harap masukkan jumlah koin yang ingin dijual!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(BnbActivity.this, getText(R.string.please_coin), Toast.LENGTH_LONG).show();
                 }
             }
         });

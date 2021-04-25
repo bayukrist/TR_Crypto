@@ -57,7 +57,7 @@ public class BtcActivity extends AppCompatActivity {
         btnHome2 =  findViewById(R.id.btnHome2);
 
         txtviewBTCWallet.setText("Rp. "+wallet);
-        txtviewbtc_aset.setText("Jumlah Koin : "+btc);
+        txtviewbtc_aset.setText(getText(R.string.number_coin)+btc);
         tmp_aset_btc = Double.parseDouble(btc);
         tmp_wallet = Double.parseDouble(wallet);
         double hargabtc = Double.parseDouble(tview_price_btc.getText().toString());
@@ -70,16 +70,16 @@ public class BtcActivity extends AppCompatActivity {
                     if(tmp_wallet > totalbeli_btc){
                         tmp_wallet= tmp_wallet-totalbeli_btc;
                         tmp_aset_btc = tmp_aset_btc+jumlah_beli_btc;
-                        txtviewbtc_aset.setText("Jumlah Koin : "+Double.toString(tmp_aset_btc));
+                        txtviewbtc_aset.setText(getText(R.string.number_coin)+Double.toString(tmp_aset_btc));
                         txtviewBTCWallet.setText("Rp. "+tmp_wallet);
                         mFirebaseDatabase.child(username).child("btc").setValue(tmp_aset_btc);
                         mFirebaseDatabase.child(username).child("wallet").setValue(tmp_wallet);
 
                     }else {
-                        Toast.makeText(BtcActivity.this, "Uang anda tidak cukup", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(BtcActivity.this, getText(R.string.kurang_uang), Toast.LENGTH_SHORT).show();
                     }
                 }else {
-                    Toast.makeText(BtcActivity.this, "Harap masukkan jumlah koin yang ingin dibeli!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(BtcActivity.this, getText(R.string.please_coin), Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -93,16 +93,16 @@ public class BtcActivity extends AppCompatActivity {
                     if(tmp_aset_btc > 0 && tmp_aset_btc >= Double.parseDouble(edittxtbelanjaBTC.getText().toString())){
                         tmp_wallet= tmp_wallet+totaljual_bnb;
                         tmp_aset_btc = tmp_aset_btc-jumlah_jual_btc;
-                        txtviewbtc_aset.setText("Jumlah Koin : "+Double.toString(tmp_aset_btc));
+                        txtviewbtc_aset.setText(getText(R.string.number_coin)+Double.toString(tmp_aset_btc));
                         txtviewBTCWallet.setText("Rp. "+tmp_wallet);
                         mFirebaseDatabase.child(username).child("bnb").setValue(tmp_aset_btc);
                         mFirebaseDatabase.child(username).child("wallet").setValue(tmp_wallet);
 
                     }else {
-                        Toast.makeText(BtcActivity.this, "Anda tidak memiliki koin yang cukup", Toast.LENGTH_LONG).show();
+                        Toast.makeText(BtcActivity.this, getText(R.string.please_coin), Toast.LENGTH_LONG).show();
                     }
                 }else if(edittxtbelanjaBTC.getText().toString().isEmpty()){
-                    Toast.makeText(BtcActivity.this, "Harap masukkan jumlah koin yang ingin dijual!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(BtcActivity.this, getText(R.string.please_coin), Toast.LENGTH_LONG).show();
                 }
             }
         });
