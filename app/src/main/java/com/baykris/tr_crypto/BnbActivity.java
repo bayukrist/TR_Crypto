@@ -21,7 +21,7 @@ public class BnbActivity extends AppCompatActivity {
     private EditText edittxtbelanjaBNB;
     private Button btnBeli1,btnJual1,btnHome1;
     private TextView txtviewBNBWallet, txtviewbnb_aset,tview_price_bnb;
-    private double tmp_aset_bnb, tmp_wallet,jumlah_beli_bnb;
+    private double tmp_aset_bnb, tmp_wallet,jumlah_beli_bnb,jumlah_jual_bnb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +57,7 @@ public class BnbActivity extends AppCompatActivity {
         btnHome1 =  findViewById(R.id.btnHome1);
 
         txtviewBNBWallet.setText("Rp. "+wallet);
-        txtviewbnb_aset.setText(bnb);
+        txtviewbnb_aset.setText("Jumlah Koin : "+bnb);
         tmp_aset_bnb = Double.parseDouble(bnb);
         tmp_wallet = Double.parseDouble(wallet);
         double hargabnb = Double.parseDouble(tview_price_bnb.getText().toString());
@@ -70,7 +70,7 @@ public class BnbActivity extends AppCompatActivity {
                   if(tmp_wallet > totalbeli_bnb){
                         tmp_wallet= tmp_wallet-totalbeli_bnb;
                         tmp_aset_bnb = tmp_aset_bnb+jumlah_beli_bnb;
-                        txtviewbnb_aset.setText(Double.toString(tmp_aset_bnb));
+                      txtviewbnb_aset.setText("Jumlah Koin : "+Double.toString(tmp_aset_bnb));
                         txtviewBNBWallet.setText("Rp. "+tmp_wallet);
                       mFirebaseDatabase.child(username).child("bnb").setValue(tmp_aset_bnb);
                       mFirebaseDatabase.child(username).child("wallet").setValue(tmp_wallet);
@@ -81,6 +81,53 @@ public class BnbActivity extends AppCompatActivity {
               }else {
                   Toast.makeText(BnbActivity.this, "Harap masukkan jumlah koin yang ingin dibeli!", Toast.LENGTH_SHORT).show();
               }
+            }
+        });
+
+        btnJual1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                jumlah_jual_bnb = Double.parseDouble(edittxtbelanjaBNB.getText().toString());
+                double totaljual_bnb = hargabnb*jumlah_jual_bnb;
+                if(!edittxtbelanjaBNB.getText().toString().isEmpty()){
+                    if(tmp_aset_bnb > 0 && tmp_aset_bnb >= Double.parseDouble(edittxtbelanjaBNB.getText().toString())){
+                        tmp_wallet= tmp_wallet+totaljual_bnb;
+                        tmp_aset_bnb = tmp_aset_bnb-jumlah_jual_bnb;
+                        txtviewbnb_aset.setText("Jumlah Koin : "+Double.toString(tmp_aset_bnb));
+                        txtviewBNBWallet.setText("Rp. "+tmp_wallet);
+                        mFirebaseDatabase.child(username).child("bnb").setValue(tmp_aset_bnb);
+                        mFirebaseDatabase.child(username).child("wallet").setValue(tmp_wallet);
+
+                    }else {
+                        Toast.makeText(BnbActivity.this, "Anda tidak memiliki koin yang cukup", Toast.LENGTH_LONG).show();
+                    }
+                }else if(edittxtbelanjaBNB.getText().toString().isEmpty()){
+                    Toast.makeText(BnbActivity.this, "Harap masukkan jumlah koin yang ingin dijual!", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+        btnHome1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentback1 = new Intent(BnbActivity.this, ProfileActivity.class);
+                intentback1.putExtra("fullname", fullname);
+                intentback1.putExtra("email", email);
+                intentback1.putExtra("username", username);
+                intentback1.putExtra("phone", phone);
+                intentback1.putExtra("btc",btc);
+                intentback1.putExtra("eth",eth);
+                intentback1.putExtra("husd",husd);
+                intentback1.putExtra("omg",omg);
+                if(!edittxtbelanjaBNB.getText().toString().isEmpty()){
+                    intentback1.putExtra("wallet",Double.toString(tmp_wallet));
+                    intentback1.putExtra("bnb",tmp_aset_bnb);
+                } else{
+                    intentback1.putExtra("wallet",wallet);
+                    intentback1.putExtra("bnb",bnb);
+                }
+                startActivity(intentback1);
+                finish();
             }
         });
 

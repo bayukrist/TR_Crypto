@@ -21,6 +21,7 @@ public class DepositActivity extends AppCompatActivity {
     private Button btnDeposit,btnBack;
     private String username,fullname,email,wallet,phone,btc,bnb,eth,husd,omg;
     private  double amount;
+    private boolean klik = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +76,7 @@ public class DepositActivity extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                klik = true;
                 Intent intentback = new Intent(DepositActivity.this, ProfileActivity.class);
                 intentback.putExtra("fullname", fullname);
                 intentback.putExtra("email", email);

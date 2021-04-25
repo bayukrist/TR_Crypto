@@ -30,6 +30,7 @@
             style="@style/modifiedEditText"
             android:hint="Masukkan Nominal"
             android:inputType="number"
+            android:layout_marginHorizontal="16dp"
             android:maxLines="1" />
     </com.google.android.material.textfield.TextInputLayout>
 
