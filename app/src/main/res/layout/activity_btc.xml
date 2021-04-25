@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BnbActivity"
+    tools:context=".BtcActivity"
     android:orientation="vertical">
 
     <TextView
@@ -18,75 +18,79 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         xmlns:tools="http://schemas.android.com/tools"
-        android:layout_margin="@dimen/cardview_margin"
-        android:foreground="?android:attr/selectableItemBackground"
+        android:layout_marginVertical="8dp"
+        android:layout_marginHorizontal="8dp"
         android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardBackgroundColor="@color/card_view_background"
         app:cardCornerRadius="@dimen/cardview_radius"
         app:cardElevation="@dimen/cardview_elevation"
         app:contentPadding="@dimen/cardview_padding"
-        app:cardBackgroundColor="@color/card_view_background">
+
+        >
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/coinsItemMainLayout5"
+            android:id="@+id/coinsItemMainLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/imgbnb"
-                android:layout_width="@dimen/cardview_image_width"
-                android:src="@drawable/icon_bnb"
-                android:layout_height="@dimen/cardview_image_height"
+                android:id="@+id/imgbtc"
+                android:src="@drawable/icon_btc"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
             <TextView
-                android:id="@+id/tview_name_bnb"
-                android:layout_width="0dp"
+                android:id="@+id/tview_name_btc"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:layout_marginStart="@dimen/default_start_margin"
                 android:gravity="start"
                 style="@style/TextAppearance.Custom.Default"
                 android:textColor="@color/black"
-                app:layout_constraintStart_toEndOf="@id/imgbnb"
+                app:layout_constraintStart_toEndOf="@id/imgbtc"
                 app:layout_constraintTop_toTopOf="parent"
-                android:text="Binance Coin"
+                android:text="Bitcoin"
                 android:layout_marginLeft="@dimen/default_start_margin" />
 
             <TextView
-                android:id="@+id/tview_symbol_bnb"
+                android:id="@+id/tview_symbol_btc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/TextAppearance.Custom.Default"
                 android:textColor="@color/subtitle_text_color"
-                app:layout_constraintStart_toStartOf="@id/tview_name_bnb"
-                app:layout_constraintTop_toBottomOf="@id/tview_name_bnb"
-                android:text="BNB"/>
+                app:layout_constraintStart_toStartOf="@id/tview_name_btc"
+                app:layout_constraintTop_toBottomOf="@id/tview_name_btc"
+                android:text="BTC"
+                />
 
 
             <TextView
-                android:id="@+id/tview_price_bnb"
+                android:id="@+id/tview_price_btc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/default_top_margin"
                 style="@style/TextAppearance.Custom.H2.Bold"
                 android:textColor="@color/black"
-                app:layout_constraintStart_toStartOf="@id/tview_name_bnb"
-                app:layout_constraintTop_toBottomOf="@id/tview_symbol_bnb"
+                app:layout_constraintStart_toStartOf="@id/tview_name_btc"
+                app:layout_constraintTop_toBottomOf="@id/tview_symbol_btc"
                 android:textSize="18dp"
-                android:text="7321000.04"/>
+                android:text="720139767.90"/>
 
             <TextView
-                android:id="@+id/tview_change_bnb"
+                android:id="@+id/tview_change_btc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/default_start_margin"
                 android:layout_marginBottom="@dimen/small_margin"
                 style="@style/TextAppearance.Custom.H3"
-                app:layout_constraintStart_toEndOf="@id/tview_price_bnb"
-                app:layout_constraintBottom_toBottomOf="@id/tview_price_bnb"
-                android:text="-9.51%"
+                app:layout_constraintStart_toEndOf="@id/tview_price_btc"
+                app:layout_constraintBottom_toBottomOf="@id/tview_price_btc"
+                android:text="-8.63%"
                 android:textColor="@color/red"
                 android:drawableStart="@drawable/ic_baseline_arrow_downward_24"/>
 
@@ -104,7 +108,7 @@
         android:layout_marginLeft="16dp"
         android:text="Rp. "
         android:textSize="20dp"
-        android:id="@+id/txtviewBNBWallet"/>
+        android:id="@+id/txtviewBTCWallet"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -112,7 +116,7 @@
         android:layout_marginLeft="16dp"
         android:text="Jumlah Koin : "
         android:textSize="20dp"
-        android:id="@+id/txtviewbnb_aset"/>
+        android:id="@+id/txtviewbtc_aset"/>
 
 
     <com.google.android.material.textfield.TextInputLayout
@@ -120,7 +124,7 @@
         android:layout_marginTop="@dimen/signup_text_margin_top">
 
         <EditText
-            android:id="@+id/edittxtbelanjaBNB"
+            android:id="@+id/edittxtbelanjaBTC"
             style="@style/modifiedEditText"
             android:hint="Masukkan Jumlah"
             android:layout_marginHorizontal="8dp"
@@ -129,7 +133,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/btnBeli1"
+        android:id="@+id/btnBeli2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
@@ -140,7 +144,7 @@
         android:textColor="@color/white" />
 
     <Button
-        android:id="@+id/btnJual1"
+        android:id="@+id/btnJual2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
@@ -151,7 +155,7 @@
         android:textColor="@color/white" />
 
     <Button
-        android:id="@+id/btnHome1"
+        android:id="@+id/btnHome2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"

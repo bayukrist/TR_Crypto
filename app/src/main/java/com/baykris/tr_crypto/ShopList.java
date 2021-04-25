@@ -56,4 +56,68 @@ public class ShopList extends AppCompatActivity {
         startActivity(tobnb);
         finish();
     }
+
+    public void btc(View view){
+        Intent tobtc = new Intent(ShopList.this , BtcActivity.class);
+        tobtc.putExtra("fullname", fullname);
+        tobtc.putExtra("email", email);
+        tobtc.putExtra("username", username);
+        tobtc.putExtra("phone", phone);
+        tobtc.putExtra("wallet",wallet);
+        tobtc.putExtra("btc",btc);
+        tobtc.putExtra("bnb",bnb);
+        tobtc.putExtra("eth",eth);
+        tobtc.putExtra("husd",husd);
+        tobtc.putExtra("omg",omg);
+        startActivity(tobtc);
+        finish();
+    }
+
+    public void eth(View view){
+        Intent toeth = new Intent(ShopList.this , EthActivity.class);
+        toeth.putExtra("fullname", fullname);
+        toeth.putExtra("email", email);
+        toeth.putExtra("username", username);
+        toeth.putExtra("phone", phone);
+        toeth.putExtra("wallet",wallet);
+        toeth.putExtra("btc",btc);
+        toeth.putExtra("bnb",bnb);
+        toeth.putExtra("eth",eth);
+        toeth.putExtra("husd",husd);
+        toeth.putExtra("omg",omg);
+        startActivity(toeth);
+        finish();
+    }
+
+    public void husd(View view){
+        Intent toeth = new Intent(ShopList.this , HusdActivity.class);
+        toeth.putExtra("fullname", fullname);
+        toeth.putExtra("email", email);
+        toeth.putExtra("username", username);
+        toeth.putExtra("phone", phone);
+        toeth.putExtra("wallet",wallet);
+        toeth.putExtra("btc",btc);
+        toeth.putExtra("bnb",bnb);
+        toeth.putExtra("eth",eth);
+        toeth.putExtra("husd",husd);
+        toeth.putExtra("omg",omg);
+        startActivity(toeth);
+        finish();
+    }
+
+    public void omg(View view){
+        Intent toeth = new Intent(ShopList.this , OmgActivity.class);
+        toeth.putExtra("fullname", fullname);
+        toeth.putExtra("email", email);
+        toeth.putExtra("username", username);
+        toeth.putExtra("phone", phone);
+        toeth.putExtra("wallet",wallet);
+        toeth.putExtra("btc",btc);
+        toeth.putExtra("bnb",bnb);
+        toeth.putExtra("eth",eth);
+        toeth.putExtra("husd",husd);
+        toeth.putExtra("omg",omg);
+        startActivity(toeth);
+        finish();
+    }
 }

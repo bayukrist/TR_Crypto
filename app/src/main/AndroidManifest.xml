@@ -11,7 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Base.AppTheme">
-        <activity android:name=".BnbActivity"></activity>
+        <activity android:name=".OmgActivity"></activity>
+        <activity android:name=".HusdActivity" />
+        <activity android:name=".EthActivity" />
+        <activity android:name=".BtcActivity" />
+        <activity android:name=".BnbActivity" />
         <activity android:name=".ShopList" />
         <activity android:name=".DepositActivity" />
         <activity android:name=".ProfileActivity" />

@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         xmlns:tools="http://schemas.android.com/tools"
+        android:onClick="btc"
         android:layout_marginVertical="8dp"
         android:layout_marginHorizontal="8dp"
         android:clickable="true"
@@ -30,6 +31,7 @@
 
             <ImageView
                 android:id="@+id/imglistbtc"
+                android:src="@drawable/icon_btc"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -100,6 +102,7 @@
         android:foreground="?android:attr/selectableItemBackground"
         android:clickable="true"
         app:cardCornerRadius="@dimen/cardview_radius"
+        android:onClick="husd"
         app:cardElevation="@dimen/cardview_elevation"
         app:contentPadding="@dimen/cardview_padding"
         app:cardBackgroundColor="@color/card_view_background">
@@ -113,6 +116,7 @@
                 android:id="@+id/imglisthusd"
                 android:layout_width="@dimen/cardview_image_width"
                 android:layout_height="@dimen/cardview_image_height"
+                android:src="@drawable/icon_husd"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
@@ -181,6 +185,7 @@
         android:clickable="true"
         app:cardCornerRadius="@dimen/cardview_radius"
         app:cardElevation="@dimen/cardview_elevation"
+        android:onClick="omg"
         app:contentPadding="@dimen/cardview_padding"
         app:cardBackgroundColor="@color/card_view_background">
 
@@ -192,6 +197,7 @@
             <ImageView
                 android:id="@+id/imglistomg"
                 android:layout_width="@dimen/cardview_image_width"
+                android:src="@drawable/icon_omg"
                 android:layout_height="@dimen/cardview_image_height"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -259,6 +265,7 @@
         android:layout_margin="@dimen/cardview_margin"
         android:foreground="?android:attr/selectableItemBackground"
         android:clickable="true"
+        android:onClick="eth"
         app:cardCornerRadius="@dimen/cardview_radius"
         app:cardElevation="@dimen/cardview_elevation"
         app:contentPadding="@dimen/cardview_padding"
@@ -273,6 +280,7 @@
                 android:id="@+id/imglisteth"
                 android:layout_width="@dimen/cardview_image_width"
                 android:layout_height="@dimen/cardview_image_height"
+                android:src="@drawable/icon_eth"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
@@ -355,6 +363,7 @@
                 android:layout_width="@dimen/cardview_image_width"
                 android:layout_height="@dimen/cardview_image_height"
                 app:layout_constraintStart_toStartOf="parent"
+                android:src="@drawable/icon_bnb"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 

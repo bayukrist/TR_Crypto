@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BnbActivity"
+    tools:context=".EthActivity"
     android:orientation="vertical">
 
     <TextView
@@ -12,6 +12,7 @@
         android:layout_marginTop="24dp"
         android:text="Belanja"
         android:layout_marginBottom="16dp"/>
+
 
     <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -27,21 +28,21 @@
         app:cardBackgroundColor="@color/card_view_background">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/coinsItemMainLayout5"
+            android:id="@+id/coinsItemMainLayout4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/imgbnb"
+                android:id="@+id/imgeth"
+                android:src="@drawable/icon_eth"
                 android:layout_width="@dimen/cardview_image_width"
-                android:src="@drawable/icon_bnb"
                 android:layout_height="@dimen/cardview_image_height"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
             <TextView
-                android:id="@+id/tview_name_bnb"
+                android:id="@+id/tview_name_eth"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
@@ -49,51 +50,50 @@
                 android:gravity="start"
                 style="@style/TextAppearance.Custom.Default"
                 android:textColor="@color/black"
-                app:layout_constraintStart_toEndOf="@id/imgbnb"
+                app:layout_constraintStart_toEndOf="@id/imgeth"
                 app:layout_constraintTop_toTopOf="parent"
-                android:text="Binance Coin"
+                android:text="Ethereum"
                 android:layout_marginLeft="@dimen/default_start_margin" />
 
             <TextView
-                android:id="@+id/tview_symbol_bnb"
+                android:id="@+id/tview_symbol_eth"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/TextAppearance.Custom.Default"
                 android:textColor="@color/subtitle_text_color"
-                app:layout_constraintStart_toStartOf="@id/tview_name_bnb"
-                app:layout_constraintTop_toBottomOf="@id/tview_name_bnb"
-                android:text="BNB"/>
+                app:layout_constraintStart_toStartOf="@id/tview_name_eth"
+                app:layout_constraintTop_toBottomOf="@id/tview_name_eth"
+                android:text="ETH"/>
 
 
             <TextView
-                android:id="@+id/tview_price_bnb"
+                android:id="@+id/tview_price_eth"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/default_top_margin"
                 style="@style/TextAppearance.Custom.H2.Bold"
                 android:textColor="@color/black"
-                app:layout_constraintStart_toStartOf="@id/tview_name_bnb"
-                app:layout_constraintTop_toBottomOf="@id/tview_symbol_bnb"
+                app:layout_constraintStart_toStartOf="@id/tview_name_eth"
+                app:layout_constraintTop_toBottomOf="@id/tview_symbol_eth"
                 android:textSize="18dp"
-                android:text="7321000.04"/>
+                android:text="33083552.46"/>
 
             <TextView
-                android:id="@+id/tview_change_bnb"
+                android:id="@+id/tview_change_eth"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/default_start_margin"
                 android:layout_marginBottom="@dimen/small_margin"
                 style="@style/TextAppearance.Custom.H3"
-                app:layout_constraintStart_toEndOf="@id/tview_price_bnb"
-                app:layout_constraintBottom_toBottomOf="@id/tview_price_bnb"
-                android:text="-9.51%"
+                app:layout_constraintStart_toEndOf="@id/tview_price_eth"
+                app:layout_constraintBottom_toBottomOf="@id/tview_price_eth"
+                android:text="-9.19%"
                 android:textColor="@color/red"
                 android:drawableStart="@drawable/ic_baseline_arrow_downward_24"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
-
 
 
 
@@ -104,7 +104,7 @@
         android:layout_marginLeft="16dp"
         android:text="Rp. "
         android:textSize="20dp"
-        android:id="@+id/txtviewBNBWallet"/>
+        android:id="@+id/txtviewETHWallet"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -112,7 +112,7 @@
         android:layout_marginLeft="16dp"
         android:text="Jumlah Koin : "
         android:textSize="20dp"
-        android:id="@+id/txtviewbnb_aset"/>
+        android:id="@+id/txtvieweth_aset"/>
 
 
     <com.google.android.material.textfield.TextInputLayout
@@ -120,7 +120,7 @@
         android:layout_marginTop="@dimen/signup_text_margin_top">
 
         <EditText
-            android:id="@+id/edittxtbelanjaBNB"
+            android:id="@+id/edittxtbelanjaETH"
             style="@style/modifiedEditText"
             android:hint="Masukkan Jumlah"
             android:layout_marginHorizontal="8dp"
@@ -129,7 +129,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/btnBeli1"
+        android:id="@+id/btnBeli3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
@@ -140,7 +140,7 @@
         android:textColor="@color/white" />
 
     <Button
-        android:id="@+id/btnJual1"
+        android:id="@+id/btnJual3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
@@ -151,7 +151,7 @@
         android:textColor="@color/white" />
 
     <Button
-        android:id="@+id/btnHome1"
+        android:id="@+id/btnHome3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
